@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Register</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; background-color: #f4faff; padding: 20px; }
+    header { background-color: #004aad; color: white; padding: 25px; text-align: center; }
+    form { background: white; max-width: 600px; margin: 30px auto; padding: 30px; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    input, select, textarea, button { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid #ccc; font-size: 16px; }
+    button { background-color: #0077cc; color: white; border: none; cursor: pointer; font-weight: bold; }
+    button:hover { background-color: #005fa3; }
+    a { display: block; text-align: center; margin-top: 15px; color: #0077cc; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <header><h1>Register for Employment Support</h1></header>
+  <form>
+    <input type="text" placeholder="Full Name" required>
+    <input type="email" placeholder="Email Address" required>
+    <input type="text" placeholder="Phone Number" required>
+    <select required>
+      <option value="">Select Qualification</option>
+      <option>SSCE</option>
+      <option>ND / NCE</option>
+      <option>HND / BSc</option>
+    </select>
+    <textarea placeholder="Skills / Experience (optional)"></textarea>
+    <button type="submit">Submit Registration</button>
+  </form>
+  <a href="index.html">← Back to Homepage</a>
+</body>
+</html>

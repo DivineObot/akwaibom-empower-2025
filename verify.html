@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verify NIN</title>
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<style>
+  body { font-family: sans-serif; background: #fefefe; padding: 20px; }
+  h2 { color: #0073cf; }
+  form { background: #ffffff; padding: 20px; border-radius: 10px; max-width: 500px; margin: auto; box-shadow: 0 0 15px rgba(0,0,0,0.1); }
+  input, button { width: 100%; margin: 10px 0; padding: 12px; border: 1px solid #ccc; border-radius: 5px; }
+  button { background: #0073cf; color: white; border: none; }
+</style>
+</head><body>
+<h2>Verify Your NIN (₦500)</h2>
+<form id="paymentForm">
+  <input type="text" id="nin" placeholder="Enter NIN" maxlength="11" required>
+  <input type="email" id="email" placeholder="Enter Email" required>
+  <button type="submit">Pay ₦500 & Verify</button>
+</form>
+<script>
+const form = document.getElementById('paymentForm');
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  let handler = PaystackPop.setup({
+    key: "pk_live_de140cf5137c7ba0af4139a292515be96befeb67",
+    email: document.getElementById('email').value,
+    amount: 50000,
+    currency: 'NGN',
+    metadata: {
+      custom_fields: [{
+        display_name: "NIN",
+        variable_name: "nin",
+        value: document.getElementById('nin').value
+      }]
+    },
+    callback: function(response) {
+      alert('Payment complete! Ref: ' + response.reference);
+    },
+    onClose: function() {
+      alert('Transaction cancelled');
+    }
+  });
+  handler.openIframe();
+});
+</script>
+</body></html>
